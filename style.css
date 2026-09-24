@@ -1,0 +1,160 @@
+/* Variables de color de la paleta Premium/Femenina */
+:root {
+    --bg-color: #ECEAE4; /* Crema/Gris muy suave */
+    --navy-blue: #2B3444; /* Azul oscuro elegante */
+    --sage-green: #A4B3A8; /* Verde salvia desaturado */
+    --text-light: #FFFFFF;
+    
+    /* Variables para el efecto Neumorfismo */
+    --shadow-light: #ffffff;
+    --shadow-dark: #d0cec8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 1.5rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Elementos de fondo decorativos */
+.floral-bg {
+    position: absolute;
+    width: 350px;
+    z-index: 0;
+}
+.top-left { top: -80px; left: -80px; }
+.bottom-right { bottom: -80px; right: -80px; }
+
+/* Lienzo de las partículas */
+#particles-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Permite hacer clic a través de él */
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+}
+
+/* Tarjeta de encabezado con volumen inverso */
+.header-card {
+    background-color: var(--navy-blue);
+    color: var(--text-light);
+    padding: 2.5rem 2rem;
+    border-radius: 25px;
+    text-align: center;
+    /* Sombra suave Neumórfica externa */
+    box-shadow: 8px 8px 20px var(--shadow-dark), -8px -8px 20px var(--shadow-light);
+}
+
+.header-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Enlaces de Catálogos (Neumorfismo) */
+.catalog-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.btn-catalog {
+    background-color: var(--sage-green);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 1.25rem;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* Efecto 3D de elevación */
+    box-shadow: 7px 7px 15px var(--shadow-dark), -7px -7px 15px var(--shadow-light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover: Se eleva un poco más */
+.btn-catalog:hover {
+    transform: translateY(-2px);
+    box-shadow: 9px 9px 18px var(--shadow-dark), -9px -9px 18px var(--shadow-light);
+}
+
+/* Active (al hacer clic): Efecto de hundimiento */
+.btn-catalog:active {
+    transform: translateY(2px);
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1), inset -5px -5px 10px rgba(255,255,255,0.4);
+}
+
+/* Botón de WhatsApp */
+.action-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: var(--navy-blue);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 1.4rem 2rem;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    width: 100%;
+    transition: all 0.25s ease;
+    box-shadow: 7px 7px 15px var(--shadow-dark), -7px -7px 15px var(--shadow-light);
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 9px 9px 18px var(--shadow-dark), -9px -9px 18px var(--shadow-light);
+}
+
+.btn-whatsapp:active {
+    transform: translateY(2px);
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3), inset -5px -5px 10px rgba(255,255,255,0.1);
+}
+
+/* Animaciones de entrada escalonada */
+.fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
